@@ -1,0 +1,36 @@
+<head>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
+</head>
+
+<template name="login">
+    {{> atForm }}
+</template>
+
+<template name="myHistory">
+  <div class="ui stackable three column grid">
+      <div class="column">
+          <div class="ui input">
+              <input type="text" placeholder="Search...">
+          </div>
+      </div>
+      <div class="column">hola</div>
+      <div class="column">mundo</div>
+  </div>
+</template>
+
+<template name="userProfile">
+    {{>atNavButton}}
+    <div class="ui input">
+        Name: <input type="text" attr="name" value="{{name}}">
+    </div>
+    <br>
+    <div class="ui input">
+        Surname: <input type="text" attr="surname" value="{{surname}}">
+    </div>
+    <br>
+    <div class="ui input">
+        Surname2: <input type="text" attr="surname2" value="{{surname2}}">
+    </div>
+    <br>
+    <button class="ui button">Save</button>
+</template>
