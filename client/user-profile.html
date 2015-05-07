@@ -1,0 +1,22 @@
+<template name="userProfile">
+  {{>atNavButton}}
+  {{>profile model=modelo}}
+</template>
+
+<template name="profile">
+    {{#withModel}}
+        Name
+        <div class="ui input">
+            <input type="text" sb sb-bind="name">
+        </div>
+        Surname
+        <div class="ui input">
+            <input type="text" sb sb-bind="surname">
+        </div>
+        Surname2
+        <div class="ui input">
+            <input type="text" sb sb-bind="surname2">
+        </div>
+        <button class="ui button" sb sb-click="updateProfile">Save</button>
+    {{/withModel}}
+</template>

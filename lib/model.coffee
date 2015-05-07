@@ -1,4 +1,5 @@
 @Notes = new Mongo.Collection('Notes')
+@Permissions = new Mongo.Collection('Permissions')
 
 class @Note extends sb.Model
   @schema:
@@ -21,10 +22,14 @@ class @Profile extends sb.Model
       validation: (x) -> x.length <= 30
     dateOfBirth:
       type: Date
+      optional: true
     observations:
       type: String
+      optional: true
       validation: (x) -> x.length <= 500
-  updateProfile: -> Meteor.call 'updateProfile', @
+  updateProfile: ->
+    console.log 'updateProfile()'
+    Meteor.call 'updateProfile', {name:@name, surname:@surname, surname2:@surname2}
 
 class @Permission extends sb.Model
   @schema:

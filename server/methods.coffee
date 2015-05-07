@@ -15,12 +15,14 @@ Meteor.methods
       Notes.update NoteId, {$set: {text: text, updateAt: new Date()}}
 
   'updateProfile': (profile) ->
-    check profile, {name: String, surname: String, surname2: String, dateOfBirth: Date, observations: String}
+    console.log 'llego', profile
+    check profile, {name: String, surname: String, surname2: String} #, dateOfBirth: Date, observations: String}
+    console.log new Profile(profile).validate()
     if new Profile(profile).isValid()
       profile.fullName = profile.name + ' ' + profile.surname
       if profile.surname2
         profile.fullName = profile.fullName + ' ' + profile.surname2
-      Meteor.users.update Meteor.userId, {$set: {profile: profile}}
+      Meteor.users.update this.userId, {$set: {profile: profile}}
 
   'insertPermission': (doctorId) ->
     check doctorId, String

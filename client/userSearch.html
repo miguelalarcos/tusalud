@@ -1,0 +1,19 @@
+<template name="userData">
+  <a href="" patientId="{{_id}}" callback="{{this.callback}}" class="patient">{{fullName}}</a>
+</template>
+
+<template name="userSearch">
+    <div class="ui input">
+        <input class="email" id="email-{{this.id}}" type="text" placeholder="Search by email">
+    </div>
+    <button class="emailButton ui button">Búsqueda</button>
+    {{#with dataByEmail}}
+      {{> userData callback="{{..callback}}"}}
+    {{/with}}
+      <div class="ui input">
+          <input class="fullName" id="fullName-{{this.id}}" type="text" placeholder="Search by fullName">
+      </div>
+    {{#each dataByFullName}}
+      {{> userData callback="{{..callback}}"}}
+    {{/each}}
+</template>
